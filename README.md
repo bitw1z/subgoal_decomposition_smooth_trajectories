@@ -17,4 +17,6 @@ We apply the Ramer-Douglas-Peucker (RDP) algorithm to end-effector trajectories 
 
 We evaluate the hierarchical policy on RLBench tasks using both original and smoothed demonstrations.
 
+## Repository Structure 
 
+## Project Website
