@@ -6,7 +6,7 @@ Subgoal extraction for robotic manipulation trajectories.
 
 Current hierarchical robotic manipulation policies such as RVT-2 and PerAct rely on heuristic-based keyframe extraction methods that assume explicit pauses in demonstrations. However, smooth trajectories often do not contain clear transition points, making subgoal extraction challenging.
 
-This project investigates whether trajectory simplification methods can provide meaningful subgoals for hierarchical policy learning on smooth demonstrations.
+This project investigates whether trajectory simplification methods can provide meaningful subgoals for hierarchical policy learning on smooth demonstrations. Furthermore, we investigate more effective subgoal decomposition methods for smooth trajectories that do not contain explicit pauses or clear transition points.
 
 ## Method
 
