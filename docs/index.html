@@ -306,37 +306,35 @@
       <h2>Introduction and Motivation</h2>
 
       <p>
-        Long-horizon robotic manipulation tasks are challenging because a robot must reason
-        over many sequential actions while also producing precise low-level motion. A single
-        monolithic policy must simultaneously learn high-level task structure and low-level
-        control, which becomes increasingly difficult as the task horizon grows.
+        Hierarchical manipulation policies have become an effective approach for robotic learning because they decompose manipulation 
+        into two separate problems: high-level task progression and low-level motion control. Rather than requiring a single policy 
+        to learn an entire manipulation behavior end-to-end, hierarchical frameworks allow a high-level policy to predict intermediate subgoals 
+        while a low-level controller focuses on executing motions to reach them. This decomposition reduces the effective planning horizon, 
+        improves learning efficiency, and enables more stable execution of complex manipulation behaviors.
       </p>
 
       <p>
-        Subgoals provide a natural solution by decomposing a complex task into a sequence of
-        intermediate objectives. This reduces the effective planning horizon and makes the
-        learning problem more modular: a high-level policy predicts what should happen next,
-        while a low-level policy controls how to reach that intermediate state.
+        As a result, subgoal selection becomes a critical component of hierarchical manipulation systems, since the quality of the extracted subgoals 
+        directly affects both high-level decision making and low-level motion execution. Effective subgoal decomposition transforms a complex manipulation 
+        task into a sequence of shorter and more manageable control objectives, enabling hierarchical policies to learn and execute robotic behaviors more 
+        efficiently and reliably. 
       </p>
 
       <div class="highlight">
         <strong>Key Idea:</strong>
-        Good subgoals make long-horizon manipulation easier by turning one difficult task into
-        several shorter, more manageable control problems.
+        Therefore, the problem of identifying meaningful subgoals from demonstrations plays a central role in the success of hierarchical manipulation learning.
       </div>
 
-      <h3>Limitations of Existing RLBench Subgoal Heuristics</h3>
-
+      <h3>Limitations of Existing Subgoal Heuristics for Hierarchical Manipulation</h3>
+      
       <p>
-        State-of-the-art manipulation methods on RLBench, such as PerAct and RVT, commonly
-        use heuristic-based keyframe extraction. Keyframes are often selected when joint
-        velocities are near zero or when the gripper open/close state changes.
+        State-of-the-art manipulation methods on RLBench, such as PerAct and RVT, use heuristic-based keyframe extraction for subgoal decomposition. 
+        Specifically, actions are selected as keyframes when the joint velocities are near zero or when the gripper open/close state changes.
       </p>
 
       <p>
-        This works well on standard RLBench demonstrations because many trajectories contain
-        explicit pauses before important actions such as grasping, pushing, or placing objects.
-        These pauses create easily detectable transition points.
+        This heuristic is effective on standard RLBench demonstrations because the trajectories contain explicit pauses before important manipulation actions 
+        such as grasping, pushing, or placing. These pauses naturally produce low-velocity transition points that are easily detected by heuristic-based keyframe extraction methods.
       </p>
 
       <div class="problem">
