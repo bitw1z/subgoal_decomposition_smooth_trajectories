@@ -288,27 +288,17 @@
     <section id="abstract">
       <h2>Abstract</h2>
       <p>
-        Long-horizon robotic manipulation tasks require robots to execute many sequential
-        actions in the correct order over extended periods of time. Hierarchical manipulation
-        methods address this challenge by decomposing tasks into subgoals, allowing high-level
-        policies to reason about task progression while low-level controllers execute
-        short-horizon motions.
-      </p>
-
-      <p>
-        However, many subgoal extraction methods used in RLBench-based manipulation systems
-        rely on simple heuristics, such as near-zero joint velocities or gripper open/close
-        transitions. These heuristics work well when demonstrations contain explicit pauses,
-        but become unreliable when trajectories are smooth and important transitions occur
-        continuously.
-      </p>
-
-      <p>
-        In this project, we investigate subgoal decomposition for smooth manipulation
-        trajectories. We smooth RLBench demonstrations to remove artificial pauses, apply
-        trajectory-based subgoal extraction using the Ramer-Douglas-Peucker algorithm, and
-        evaluate the resulting subgoals in a hierarchical policy framework using RVT-2 and
-        goal-conditioned DP3.
+        Existing RLBench-based hierarchical manipulation methods such as PerAct and RVT extract 
+        subgoals using simple heuristics based on near-zero joint velocities and gripper state transitions. 
+        While effective on standard RLBench demonstrations, these methods rely heavily on explicit pauses 
+        between motions and become unreliable under smooth trajectories without clear transition points. 
+        In this work, we introduce a smooth-trajectory benchmark for RLBench where explicit pauses are removed 
+        while preserving the original task behavior. We then propose a geometry-based subgoal decomposition method 
+        using trajectory simplification to extract meaningful intermediate subgoals from smooth trajectories. 
+        Using a hierarchical framework based on RVT-2 and goal-conditioned 3D Diffusion Policy, our method achieves  
+        56% higher success rates on the smooth benchmark compared to RVT-2 trained directly on smooth demonstrations. 
+        These results demonstrate that geometry-based trajectory simplification provides a more robust subgoal decomposition 
+        method that can automatically extract meaningful intermediate subgoals without relying on handcrafted heuristic rules.
       </p>
     </section>
 
