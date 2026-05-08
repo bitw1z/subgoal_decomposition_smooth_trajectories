@@ -40,3 +40,5 @@ Contains the agent implementations used throughout the project:
 Subgoal extraction is implemented through the `keypoint_discovery` function. This function is responsible for selecting keyframes/subgoals from demonstrations using different decomposition strategies, including heuristic-based selection and Ramer-Douglas-Peucker (RDP)-based trajectory simplification.
 
 ## Project Website
+
+https://bitw1z.github.io/subgoal_decomposition_smooth_trajectories/
