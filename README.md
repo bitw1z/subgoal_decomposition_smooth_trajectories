@@ -12,9 +12,9 @@ Long-horizon robotic manipulation tasks are challenging because they require rea
 
 Subgoals address this challenge by decomposing complex manipulation tasks into intermediate objectives. This decomposition reduces the effective planning horizon and provides structured guidance for low-level control policies, making long-horizon manipulation more tractable.
 
-State-of-the-art manipulation systems on RLBench such as RVT and PerAct predict intermediate subgoals and use motion planners to generate collision-free trajectories. These methods typically rely on simple heuristic-based subgoal decomposition strategies that assume demonstrations contain explicit pauses or clear transition points, such as pre-grasp or pre-push states. While this assumption works well for standard RLBench demonstrations, it becomes problematic when trajectories are smooth and no longer contain obvious stopping points.
+State-of-the-art manipulation policies on RLBench such as RVT and PerAct predict intermediate subgoals and use motion planners to generate collision-free trajectories. These methods typically rely on simple heuristic-based subgoal decomposition strategies that assume demonstrations contain explicit pauses or clear transition points, such as pre-grasp or pre-push states. While this assumption works well for standard RLBench demonstrations, it becomes problematic when trajectories are smooth and no longer contain obvious stopping points.
 
-This project investigates subgoal decomposition for smooth manipulation trajectories and studies how hierarchical manipulation policies behave when demonstrations no longer contain explicit transition points. We explore whether trajectory-based subgoal decomposition methods can provide meaningful intermediate subgoals for smooth demonstrations and improve hierarchical policy learning.
+In this project, we investigate subgoal decomposition for smooth manipulation trajectories. We first smooth RLBench demonstrations to remove explicit pauses and transition points. We then explore trajectory-based subgoal decomposition methods, including Ramer-Douglas-Peucker (RDP), and evaluate hierarchical manipulation policies combining RVT-2 and goal-conditioned DP3 on these smooth demonstrations.
 
 Additional implementation details, experiments, visualizations, and project updates are provided on the project website.
 
@@ -24,7 +24,7 @@ Additional implementation details, experiments, visualizations, and project upda
 RLBench environment and dataset processing code. Trajectory smoothing is applied in this module to generate smooth demonstrations without explicit pauses. The main smoothing implementation is located in `pipeline_utils.py`, where Savitzky-Golay filtering is used to smooth joint velocities and end-effector trajectories.
 
 ### 3D-Diffusion-Policy-master
-Contains both non-goal-conditioned and goal-conditioned DP3 implementations used as low-level manipulation policies. The main policy implementation is located in `3D-Diffusion-Policy-master/diffusion_policy_3d/policy/dp3.py`.
+Contains both non-goal-conditioned and goal-conditioned DP3 implementations used as low-level manipulation policies. The main policy implementation is located in `dp3.py` and `pointnet_extractor.py`
 
 The primary difference between the non-goal-conditioned and goal-conditioned variants lies in the encoder architecture:
 - Non-goal-conditioned DP3 uses a point cloud encoder.
