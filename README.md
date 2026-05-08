@@ -28,7 +28,7 @@ Contains both non-goal-conditioned and goal-conditioned DP3 implementations used
 
 The primary difference between the non-goal-conditioned and goal-conditioned variants lies in the encoder architecture:
 - Non-goal-conditioned DP3 uses a point cloud encoder.
-- Goal-conditioned DP3 uses an ACT3D-based encoder that jointly encodes scene point clouds and gripper pose representations.
+- Goal-conditioned DP3 uses an custom ACT3D-based encoder that jointly encodes scene point clouds and gripper pose representations to provide goal gripper pose to the model. 
 
 ### models
 Contains the agent implementations used throughout the project:
