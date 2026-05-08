@@ -3,7 +3,7 @@
 Subgoal extraction for robotic manipulation trajectories. 
 
 <p align="center">
-  <img src="images/rdp=0035.png" width="700"/>
+  <img src="images/RDP=0035.png" width="500"/>
 </p>
 
 ## Overview
