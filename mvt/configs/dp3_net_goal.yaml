@@ -1,0 +1,56 @@
+# ============================================================
+# DP3 Network Architecture Configuration
+# ============================================================
+# ============================================================
+
+# ------------------------------------------------------------
+# Core MLP / U-Net backbone
+# ------------------------------------------------------------
+hidden_dim: 256
+num_layers: 4
+dropout: 0.0
+n_obs_steps: 2
+
+# ------------------------------------------------------------
+# Conditioning mechanism
+# ------------------------------------------------------------
+# FiLM conditioning is used in DP3 to inject observation context
+condition_type: film
+
+# ------------------------------------------------------------
+# Diffusion U-Net structure (action-space denoiser)
+# ------------------------------------------------------------
+down_dims: [512, 1024, 2048]
+kernel_size: 5
+
+# ------------------------------------------------------------
+# point cloud encoder
+# ------------------------------------------------------------
+pointnet_type: act3d 
+goal_mode: cross_attention_to_goal
+
+pointcloud_encoder_cfg:
+  in_channels: 3                # xyz
+  encoder_output_dim: 60        # internal Act3D feature size
+  attention_num_heads: 3
+  attention_num_layers: 2
+
+# ------------------------------------------------------------
+# Proprioception encoder
+# ------------------------------------------------------------
+proprio_encoder_cfg:
+  hidden_dim: 128
+  num_layers: 2
+  use_layernorm: true
+  use_projection: true
+
+# ------------------------------------------------------------
+# Action embedding
+# ------------------------------------------------------------
+action_embed_dim: 128
+
+# ------------------------------------------------------------
+# Time embedding (diffusion timestep embedding)
+# ------------------------------------------------------------
+use_time_embedding: true
+time_embed_dim: 128

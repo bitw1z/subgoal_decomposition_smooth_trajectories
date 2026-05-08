@@ -1,0 +1,48 @@
+# ============================
+# DP3 Experiment Config
+# ============================
+
+agent: dp3
+# exp_id: dp3
+exp_id: dp3_goal
+resume: ""
+
+# ----------------------------
+# Dataset / Training
+# ----------------------------
+tasks: sweep_to_dustpan_of_size
+bs: 24
+epochs: 120
+num_workers: 3
+train_iter: 160000
+sample_distribution_mode: task_uniform
+
+# ----------------------------
+# DP3 Optimization
+# ----------------------------
+dp3:
+  lr: 1.0e-4
+  optimizer_type: adamw
+  weight_decay: 1.0e-4
+  amp: false
+  bnb: false
+
+  warmup_steps: 2000
+  cos_dec_max_step: 160000
+
+  # Temporal structure
+  horizon: 16
+  n_action_steps: 16
+  n_obs_steps: 2 
+
+  # Diffusion scheduler (paper-faithful)
+  noise_scheduler_cfg:
+    _target_: diffusers.schedulers.scheduling_ddpm.DDPMScheduler
+    num_train_timesteps: 100
+    beta_schedule: linear
+
+# ----------------------------
+# DP3 Network Architecture
+# ----------------------------
+# dp3_policy_config: mvt/configs/dp3_net_non_goal.yaml
+dp3_policy_config: mvt/configs/dp3_net_goal.yaml

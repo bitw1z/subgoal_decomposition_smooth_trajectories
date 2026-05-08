@@ -1,0 +1,31 @@
+num_epochs: 50
+lr: 3e-4
+
+model: "pn_plus_plus"
+loss_type: "weighted_displacement"
+goal_type: "12points"
+
+dataloader:
+  batch_size: 32
+  num_workers: 8
+  shuffle: True
+  pin_memory: True
+  persistent_workers: False
+
+val_dataloader:
+  batch_size: 32
+  num_workers: 8
+  shuffle: False
+  pin_memory: True
+  persistent_workers: False
+
+dataset:
+  _target_: diffusion_policy_3d.dataset.dexart_dataset.DexArtDataset
+  zarr_path: /data/xinyu/dexart_laptop_expert_train_oraclegoal_10k_seen.zarr
+  horizon: 16
+  pad_before: 1
+  pad_after: 7
+  seed: 42
+  val_ratio: 0.02
+  max_train_episodes: 9000
+  goal_mode: 'pointcloud_oracle'
