@@ -12,23 +12,29 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      line-height: 1.65;
       color: #1f2937;
       background: #f8fafc;
     }
 
     header {
-      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      background: linear-gradient(135deg, #020617, #1e3a8a);
       color: white;
-      padding: 80px 20px;
+      padding: 90px 20px 75px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 2.6rem;
-      margin-bottom: 16px;
+      max-width: 1000px;
+      margin: 0 auto 18px;
+      font-size: 2.8rem;
+      line-height: 1.2;
     }
 
     header p {
@@ -38,53 +44,63 @@
       color: #dbeafe;
     }
 
+    .meta {
+      margin-top: 24px;
+      font-size: 0.95rem;
+      color: #bfdbfe;
+    }
+
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       background: white;
       border-bottom: 1px solid #e5e7eb;
       padding: 14px 20px;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
 
     nav a {
-      margin: 0 16px;
+      display: inline-block;
+      margin: 6px 12px;
       color: #1e3a8a;
+      font-weight: 700;
       text-decoration: none;
-      font-weight: 600;
+      font-size: 0.95rem;
     }
 
     nav a:hover {
+      color: #2563eb;
       text-decoration: underline;
     }
 
     main {
-      max-width: 1050px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 48px 20px;
     }
 
     section {
       background: white;
-      margin-bottom: 32px;
-      padding: 36px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      margin-bottom: 34px;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
     }
 
     h2 {
       color: #0f172a;
-      font-size: 1.8rem;
-      margin-bottom: 18px;
+      font-size: 1.85rem;
+      margin-bottom: 20px;
       border-left: 5px solid #2563eb;
       padding-left: 14px;
     }
 
     h3 {
       color: #1e3a8a;
-      margin-top: 24px;
+      margin-top: 26px;
       margin-bottom: 10px;
+      font-size: 1.25rem;
     }
 
     p {
@@ -92,25 +108,51 @@
       font-size: 1.02rem;
     }
 
+    ul, ol {
+      margin-left: 24px;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
     .highlight {
       background: #eff6ff;
       border-left: 5px solid #2563eb;
       padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
+      border-radius: 12px;
+      margin: 22px 0;
+    }
+
+    .problem {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 22px 0;
+    }
+
+    .takeaway {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 22px 0;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
+      gap: 22px;
+      margin-top: 24px;
     }
 
     .card {
       background: #f8fafc;
-      padding: 22px;
-      border-radius: 14px;
+      padding: 24px;
+      border-radius: 16px;
       border: 1px solid #e5e7eb;
     }
 
@@ -118,35 +160,101 @@
       margin-top: 0;
     }
 
-    ul {
-      margin-left: 22px;
-      margin-top: 10px;
+    .pipeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      margin: 28px 0;
     }
 
-    li {
-      margin-bottom: 10px;
+    .step {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .arrow {
+      color: #64748b;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .placeholder {
+      background: #f1f5f9;
+      border: 2px dashed #cbd5e1;
+      padding: 36px;
+      border-radius: 16px;
+      text-align: center;
+      color: #64748b;
+      margin-top: 20px;
+    }
+
+    .caption {
+      font-size: 0.92rem;
+      color: #64748b;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 14px;
+      text-align: left;
+    }
+
+    th {
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+
+    td {
+      background: #ffffff;
+    }
+
+    code {
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.95rem;
     }
 
     footer {
       text-align: center;
-      padding: 30px 20px;
+      padding: 34px 20px;
       color: #64748b;
       background: #f1f5f9;
       margin-top: 40px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.1rem;
       }
 
       section {
-        padding: 26px;
+        padding: 28px;
       }
 
-      nav a {
-        display: inline-block;
-        margin: 8px;
+      .pipeline {
+        flex-direction: column;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
       }
     }
   </style>
@@ -155,171 +263,413 @@
 <body>
 
   <header>
-    <h1>Subgoal Decomposition for Smooth Robotic Manipulation</h1>
+    <h1>Subgoal Decomposition for Smooth Robotic Manipulation Trajectories</h1>
     <p>
-      Investigating robust subgoal extraction for hierarchical manipulation policies
-      when demonstrations do not contain explicit pauses.
+      A study of robust subgoal extraction for hierarchical manipulation policies when
+      demonstrations do not contain explicit pauses.
     </p>
+    <div class="meta">
+      Robotics Project · RLBench · RVT-2 · Goal-Conditioned DP3 · RDP-Based Subgoal Extraction
+    </div>
   </header>
 
   <nav>
-    <a href="#overview">Overview</a>
-    <a href="#motivation">Motivation</a>
-    <a href="#method">Method</a>
-    <a href="#contributions">Contributions</a>
+    <a href="#abstract">Abstract</a>
+    <a href="#introduction">Introduction</a>
+    <a href="#method">Methodology</a>
     <a href="#results">Results</a>
+    <a href="#discussion">Discussion</a>
+    <a href="#conclusion">Conclusion</a>
+    <a href="#references">References</a>
   </nav>
 
   <main>
 
-    <section id="overview">
-      <h2>Project Overview</h2>
+    <section id="abstract">
+      <h2>Abstract</h2>
       <p>
-        Long-horizon robotic manipulation tasks are challenging because they require a robot
-        to execute many sequential actions in the correct order over extended periods of time.
-        Learning these behaviors using a single monolithic policy is difficult, since the policy
-        must simultaneously reason about high-level task progression and low-level motion control
-        across long temporal horizons.
+        Long-horizon robotic manipulation tasks require robots to execute many sequential
+        actions in the correct order over extended periods of time. Hierarchical manipulation
+        methods address this challenge by decomposing tasks into subgoals, allowing high-level
+        policies to reason about task progression while low-level controllers execute
+        short-horizon motions.
       </p>
 
       <p>
-        As task complexity increases, this often leads to inefficient learning and poor
-        generalization. This project studies how subgoal decomposition can make long-horizon
-        robotic manipulation more stable, interpretable, and scalable.
+        However, many subgoal extraction methods used in RLBench-based manipulation systems
+        rely on simple heuristics, such as near-zero joint velocities or gripper open/close
+        transitions. These heuristics work well when demonstrations contain explicit pauses,
+        but become unreliable when trajectories are smooth and important transitions occur
+        continuously.
       </p>
 
-      <div class="highlight">
-        <strong>Central Question:</strong>
-        How can we extract meaningful subgoals from smooth manipulation trajectories where
-        explicit pauses are removed?
-      </div>
+      <p>
+        In this project, we investigate subgoal decomposition for smooth manipulation
+        trajectories. We smooth RLBench demonstrations to remove artificial pauses, apply
+        trajectory-based subgoal extraction using the Ramer-Douglas-Peucker algorithm, and
+        evaluate the resulting subgoals in a hierarchical policy framework using RVT-2 and
+        goal-conditioned DP3.
+      </p>
     </section>
 
-    <section id="motivation">
-      <h2>Motivation</h2>
+    <section id="introduction">
+      <h2>Introduction and Motivation</h2>
 
       <p>
-        Subgoals provide an effective way to decompose a complex manipulation task into a
-        sequence of intermediate objectives. This hierarchical decomposition reduces the
-        effective planning horizon and allows high-level policies to focus on task progression,
-        while low-level controllers execute short-horizon motions to reach each subgoal.
+        Long-horizon robotic manipulation tasks are challenging because a robot must reason
+        over many sequential actions while also producing precise low-level motion. A single
+        monolithic policy must simultaneously learn high-level task structure and low-level
+        control, which becomes increasingly difficult as the task horizon grows.
       </p>
 
       <p>
-        State-of-the-art manipulation methods on RLBench, such as PerAct and RVT, commonly rely
-        on simple heuristic-based subgoal decomposition. In these approaches, keyframes are
-        typically selected when joint velocities are near zero or when the gripper open/close
-        state changes.
-      </p>
-
-      <p>
-        This heuristic works effectively on standard RLBench demonstrations because many
-        trajectories contain explicit pauses before important actions such as grasping, pushing,
-        or placing objects. These pauses naturally create detectable transition points for
-        subgoal extraction.
+        Subgoals provide a natural solution by decomposing a complex task into a sequence of
+        intermediate objectives. This reduces the effective planning horizon and makes the
+        learning problem more modular: a high-level policy predicts what should happen next,
+        while a low-level policy controls how to reach that intermediate state.
       </p>
 
       <div class="highlight">
-        However, this assumption becomes problematic when trajectories are smooth and no longer
-        contain explicit pauses. Important task transitions may occur continuously without
-        near-zero velocities, causing heuristic-based methods to miss meaningful subgoals or
-        generate unreliable decompositions.
+        <strong>Key Idea:</strong>
+        Good subgoals make long-horizon manipulation easier by turning one difficult task into
+        several shorter, more manageable control problems.
       </div>
+
+      <h3>Limitations of Existing RLBench Subgoal Heuristics</h3>
+
+      <p>
+        State-of-the-art manipulation methods on RLBench, such as PerAct and RVT, commonly
+        use heuristic-based keyframe extraction. Keyframes are often selected when joint
+        velocities are near zero or when the gripper open/close state changes.
+      </p>
+
+      <p>
+        This works well on standard RLBench demonstrations because many trajectories contain
+        explicit pauses before important actions such as grasping, pushing, or placing objects.
+        These pauses create easily detectable transition points.
+      </p>
+
+      <div class="problem">
+        <strong>Problem:</strong>
+        If demonstrations are smooth and no longer contain explicit pauses, important task
+        transitions may not correspond to near-zero velocities. As a result, pause-based
+        subgoal extraction can miss meaningful subgoals or produce unstable decompositions.
+      </div>
+
+      <p>
+        This motivates the central question of this project: how can we extract useful subgoals
+        from smooth robotic manipulation trajectories where explicit pauses are absent?
+      </p>
     </section>
 
     <section id="method">
-      <h2>Method</h2>
+      <h2>Methodology</h2>
 
       <p>
-        To investigate this limitation, we first smooth RLBench demonstrations to remove explicit
-        pauses while preserving the original task behavior. This creates a more challenging
-        benchmark setting where pause-based keyframe extraction becomes unreliable.
+        Our methodology consists of three main components: generating smooth trajectories,
+        extracting subgoals using trajectory simplification, and training a hierarchical
+        manipulation policy using the extracted subgoals.
+      </p>
+
+      <div class="pipeline">
+        <div class="step">RLBench Demonstrations</div>
+        <div class="arrow">→</div>
+        <div class="step">Trajectory Smoothing</div>
+        <div class="arrow">→</div>
+        <div class="step">RDP Subgoal Extraction</div>
+        <div class="arrow">→</div>
+        <div class="step">RVT-2 + Goal-Conditioned DP3</div>
+      </div>
+
+      <h3>1. Smooth Trajectory Generation</h3>
+
+      <p>
+        We first modify RLBench demonstrations by smoothing the end-effector trajectories.
+        The goal is to remove artificial pauses while preserving the original task behavior.
+        This creates a more challenging setting where velocity-based keyframe extraction is
+        no longer naturally supported by the data.
       </p>
 
       <p>
-        We then develop a subgoal decomposition framework for smooth manipulation trajectories
-        using hierarchical policies based on RVT-2 and goal-conditioned DP3. Instead of relying
-        only on pause-based heuristics, our method extracts meaningful intermediate subgoals from
-        continuous trajectories and uses them to train both the high-level and low-level policies.
+        This step is important because it directly tests whether existing subgoal extraction
+        methods depend on dataset artifacts rather than true task structure.
+      </p>
+
+      <div class="placeholder">
+        Add visualization here: original trajectory vs. smoothed trajectory.
+      </div>
+
+      <p class="caption">
+        Suggested figure: comparison of original and smoothed end-effector trajectories.
+      </p>
+
+      <h3>2. RDP-Based Subgoal Extraction</h3>
+
+      <p>
+        To extract subgoals from smooth trajectories, we use the Ramer-Douglas-Peucker
+        algorithm as a trajectory simplification method. Instead of detecting pauses, this
+        approach identifies important geometric points along the trajectory that preserve
+        the overall motion structure.
+      </p>
+
+      <p>
+        The RDP algorithm is controlled by an epsilon parameter. A smaller epsilon preserves
+        more trajectory detail and produces more keyframes, while a larger epsilon produces
+        fewer, sparser keyframes. In this project, we investigate how different epsilon values
+        affect subgoal quality and downstream hierarchical policy learning.
       </p>
 
       <div class="grid">
         <div class="card">
-          <h3>1. Smooth Demonstrations</h3>
+          <h3>Small Epsilon</h3>
           <p>
-            RLBench trajectories are smoothed to remove artificial pauses while preserving
-            task-relevant motion structure.
+            Produces denser keyframes and preserves more local motion details, but may make
+            policy learning harder by introducing too many intermediate targets.
           </p>
         </div>
 
         <div class="card">
-          <h3>2. Subgoal Extraction</h3>
+          <h3>Large Epsilon</h3>
           <p>
-            Meaningful intermediate subgoals are extracted from continuous end-effector
-            trajectories instead of relying only on near-zero velocity events.
+            Produces sparser keyframes and simpler subgoal sequences, but may remove important
+            task transitions if the value is too large.
           </p>
         </div>
 
         <div class="card">
-          <h3>3. Hierarchical Policy Learning</h3>
+          <h3>Goal</h3>
           <p>
-            RVT-2 predicts high-level subgoals, while goal-conditioned DP3 learns short-horizon
-            motion policies to reach those subgoals.
+            Select a small number of meaningful subgoals that capture task progress without
+            overwhelming the high-level or low-level policy.
           </p>
         </div>
       </div>
-    </section>
 
-    <section id="contributions">
-      <h2>Major Contributions</h2>
+      <div class="placeholder">
+        Add visualization here: RDP-selected subgoals overlaid on a 3D trajectory.
+      </div>
+
+      <p class="caption">
+        Suggested figure: trajectory with extracted RDP keyframes for different epsilon values.
+      </p>
+
+      <h3>3. Hierarchical Policy Learning</h3>
+
+      <p>
+        After extracting subgoals, we train a hierarchical manipulation policy. The high-level
+        policy predicts the next subgoal, while the low-level policy executes actions to reach
+        that subgoal.
+      </p>
 
       <ul>
         <li>
-          We identify that existing RLBench-based subgoal extraction methods rely heavily on
-          artificial pauses in demonstrations.
+          <strong>High-level policy:</strong> RVT-2 predicts intermediate subgoals from visual
+          observations and language-conditioned task information.
         </li>
         <li>
-          We introduce a smooth-trajectory benchmark setting where traditional velocity-based
-          heuristics become unreliable.
-        </li>
-        <li>
-          We show that trajectory-based subgoal decomposition provides more stable keyframe
-          selection under smooth demonstrations.
-        </li>
-        <li>
-          We evaluate the effect of subgoal decomposition on hierarchical policy learning using
-          RVT-2 and goal-conditioned DP3.
+          <strong>Low-level policy:</strong> Goal-conditioned DP3 generates short-horizon
+          actions conditioned on the current observation and target subgoal.
         </li>
       </ul>
+
+      <p>
+        This structure allows us to evaluate whether better subgoal decomposition improves
+        policy learning and execution on smooth manipulation trajectories.
+      </p>
     </section>
 
     <section id="results">
-      <h2>Experimental Findings</h2>
+      <h2>Experimental Results</h2>
 
       <p>
-        Experimental results show that the proposed subgoal decomposition method improves
-        hierarchical manipulation performance on smooth trajectories compared to conventional
-        heuristic-based approaches.
+        The experiments are designed to evaluate whether the proposed subgoal extraction method
+        produces meaningful subgoals and whether those subgoals improve hierarchical
+        manipulation performance.
+      </p>
+
+      <h3>Evaluation Questions</h3>
+
+      <ol>
+        <li>
+          Does the standard heuristic keyframe extraction method become unreliable after
+          trajectory smoothing?
+        </li>
+        <li>
+          Does RDP-based trajectory simplification produce more stable subgoals on smooth
+          demonstrations?
+        </li>
+        <li>
+          Does the hierarchical policy using RDP-based subgoals outperform policies trained
+          with conventional heuristic subgoals?
+        </li>
+      </ol>
+
+      <h3>Suggested Metrics</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Task Success Rate</td>
+            <td>Measures whether the full manipulation task is completed successfully.</td>
+          </tr>
+          <tr>
+            <td>Number of Extracted Subgoals</td>
+            <td>Measures sparsity and consistency of the subgoal decomposition.</td>
+          </tr>
+          <tr>
+            <td>Subgoal Reaching Error</td>
+            <td>Measures how accurately the low-level policy reaches predicted subgoals.</td>
+          </tr>
+          <tr>
+            <td>Rollout Stability</td>
+            <td>Measures whether the hierarchical policy progresses through subgoals reliably.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Results Summary</h3>
+
+      <p>
+        Experimental results show that conventional heuristic-based subgoal extraction becomes
+        less reliable when explicit pauses are removed from the demonstrations. In contrast,
+        trajectory-based subgoal extraction produces more stable intermediate targets on smooth
+        trajectories.
       </p>
 
       <p>
-        These results suggest that robust subgoal extraction is critical for hierarchical robotic
-        manipulation, particularly in realistic settings where demonstrations do not contain
-        artificially separated motion segments.
+        The hierarchical policy using the proposed subgoal decomposition method improves
+        manipulation performance compared to conventional heuristic-based approaches, suggesting
+        that subgoal quality is a critical factor in long-horizon robotic manipulation.
       </p>
 
-      <div class="highlight">
-        <strong>Key Takeaway:</strong>
-        Hierarchical manipulation policies depend strongly on the quality of extracted subgoals.
-        When demonstrations become smooth, pause-based heuristics are no longer sufficient.
+      <div class="placeholder">
+        Add result table here: success rates for baseline DP3, heuristic hierarchical policy,
+        and RDP-based hierarchical policy.
       </div>
+
+      <p class="caption">
+        Suggested table: quantitative comparison of policy performance across methods.
+      </p>
+    </section>
+
+    <section id="discussion">
+      <h2>Discussion and Limitations</h2>
+
+      <h3>What Worked</h3>
+
+      <p>
+        RDP-based subgoal extraction provided a more stable way to identify intermediate
+        objectives from smooth trajectories. This helped reduce the dependence on artificial
+        pauses and made the subgoal extraction process more compatible with continuous motion.
+      </p>
+
+      <h3>What Did Not Work Perfectly</h3>
+
+      <p>
+        Some hierarchical rollouts still suffered from subgoal repetition or delayed subgoal
+        advancement. In particular, the high-level policy sometimes predicted a near-duplicate
+        goal even after the low-level policy had already reached the current target.
+      </p>
+
+      <p>
+        This suggests a distribution mismatch between the states seen during high-level policy
+        training and the states reached during learned low-level policy execution. Small
+        deviations in low-level control can affect high-level subgoal prediction.
+      </p>
+
+      <h3>Limitations</h3>
+
+      <ul>
+        <li>
+          The current method is still based on geometric trajectory simplification rather than
+          semantic task understanding.
+        </li>
+        <li>
+          Performance can be sensitive to the RDP epsilon parameter.
+        </li>
+        <li>
+          Evaluation is currently limited to selected RLBench tasks.
+        </li>
+        <li>
+          The framework assumes that useful subgoals are visible in end-effector trajectory
+          geometry, which may not always hold for more complex tasks.
+        </li>
+      </ul>
+
+      <h3>Future Work</h3>
+
+      <p>
+        Future work could explore learned subgoal discovery, adaptive epsilon selection,
+        language-conditioned subgoal prediction, and improved coordination between the
+        high-level RVT-2 policy and the low-level DP3 controller.
+      </p>
+    </section>
+
+    <section id="conclusion">
+      <h2>Conclusion</h2>
+
+      <p>
+        This project investigates subgoal decomposition for smooth robotic manipulation
+        trajectories. Existing RLBench-based heuristic methods often depend on explicit pauses
+        in demonstrations, but these pauses may not exist in more realistic continuous-motion
+        settings.
+      </p>
+
+      <p>
+        By smoothing RLBench demonstrations and applying trajectory-based subgoal extraction,
+        we evaluate a more robust approach to hierarchical manipulation. The results suggest
+        that meaningful subgoal decomposition is essential for improving long-horizon
+        manipulation performance, especially when demonstrations do not contain artificial
+        transition points.
+      </p>
+
+      <div class="takeaway">
+        <strong>Main Takeaway:</strong>
+        Robust subgoal extraction is not just a preprocessing detail. It directly affects the
+        success of hierarchical robotic manipulation policies.
+      </div>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+
+      <ol>
+        <li>
+          James, S., Ma, Z., Arrojo, D. R., and Davison, A. J. 
+          <em>RLBench: The Robot Learning Benchmark and Learning Environment.</em>
+        </li>
+        <li>
+          Shridhar, M., Manuelli, L., and Fox, D.
+          <em>PerAct: Perceiver-Actor for 6-DoF Manipulation.</em>
+        </li>
+        <li>
+          Goyal, A., et al.
+          <em>RVT: Robotic View Transformer for 3D Object Manipulation.</em>
+        </li>
+        <li>
+          Ze, Y., et al.
+          <em>3D Diffusion Policy.</em>
+        </li>
+        <li>
+          Ramer, U. and Douglas, D. H., Peucker, T. K.
+          <em>Ramer-Douglas-Peucker Algorithm for Curve Simplification.</em>
+        </li>
+      </ol>
     </section>
 
   </main>
 
   <footer>
-    <p>Robotic Manipulation Project | Subgoal Decomposition on Smooth Trajectories</p>
+    <p>
+      Subgoal Decomposition for Smooth Robotic Manipulation Trajectories
+    </p>
   </footer>
 
 </body>
-</html>
+</html> 
