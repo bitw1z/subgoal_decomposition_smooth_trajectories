@@ -2,21 +2,41 @@
 
 Subgoal extraction for robotic manipulation trajectories. 
 
+<p align="center">
+  <img src="images/RDP=0.035.png" width="400"/>
+</p>
+
 ## Overview
 
-Current hierarchical robotic manipulation policies such as RVT-2 and PerAct rely on heuristic-based keyframe extraction methods that assume explicit pauses in demonstrations. However, smooth trajectories often do not contain clear transition points, making subgoal extraction challenging.
+Long-horizon robotic manipulation tasks are challenging because they require reasoning over many sequential actions while maintaining consistent task progression throughout the task. Learning these behaviors using a single monolithic policy is difficult, since the policy must simultaneously reason about high-level task planning and low-level motion control.
 
-This project investigates whether trajectory simplification methods can provide meaningful subgoals for hierarchical policy learning on smooth demonstrations. Furthermore, we investigate more effective subgoal decomposition methods for smooth trajectories that do not contain explicit pauses or clear transition points.
+Subgoals address this challenge by decomposing complex manipulation tasks into intermediate objectives. This decomposition reduces the effective planning horizon and provides structured guidance for low-level control policies, making long-horizon manipulation more tractable.
 
-## Method
+State-of-the-art manipulation policies on RLBench such as RVT and PerAct predict intermediate subgoals and use motion planners to generate collision-free trajectories. These methods typically rely on simple heuristic-based subgoal decomposition strategies that assume demonstrations contain explicit pauses or clear transition points, such as pre-grasp or pre-push states. While this assumption works well for standard RLBench demonstrations, it becomes problematic when trajectories are smooth and no longer contain obvious stopping points.
 
-We apply the Ramer-Douglas-Peucker (RDP) algorithm to end-effector trajectories to extract sparse keyframes from smooth demonstrations. These keyframes are then used to train:
+In this project, we investigate subgoal decomposition for smooth manipulation trajectories. We first smooth RLBench demonstrations to remove explicit pauses and transition points. We then explore trajectory-based subgoal decomposition methods, including Ramer-Douglas-Peucker (RDP), and evaluate hierarchical manipulation policies combining RVT-2 and goal-conditioned DP3 on these smooth demonstrations.
 
-- RVT-2 as the high-level subgoal predictor
-- Goal-conditioned DP3 as the low-level controller
+Additional implementation details, experiments, visualizations, and project updates are provided on the project website.
 
-We evaluate the hierarchical policy on RLBench tasks using both original and smoothed demonstrations.
+## Repository Structure
 
-## Repository Structure 
+### RLBench-PerAct_Joint_Velocity
+RLBench environment and dataset processing code. Trajectory smoothing is applied in this module to generate smooth demonstrations without explicit pauses. The main smoothing implementation is located in `pipeline_utils.py`, where Savitzky-Golay filtering is used to smooth joint velocities and end-effector trajectories.
+
+### 3D-Diffusion-Policy-master
+Contains both non-goal-conditioned and goal-conditioned DP3 implementations used as low-level manipulation policies. The main policy implementation is located in `dp3.py` and `pointnet_extractor.py`
+
+The primary difference between the non-goal-conditioned and goal-conditioned variants lies in the encoder architecture:
+- Non-goal-conditioned DP3 uses a point cloud encoder.
+- Goal-conditioned DP3 uses an ACT3D-based encoder that jointly encodes scene point clouds and gripper pose representations.
+
+### models
+Contains the agent implementations used throughout the project:
+- `dp3_agent.py`: goal-conditioned DP3 agent
+- `dp3_agent_non_goal.py`: non-goal-conditioned DP3 baseline
+- `hierarchical_agent.py`: hierarchical policy combining RVT-2 and goal-conditioned DP3
+
+### Subgoal Extraction
+Subgoal extraction is implemented through the `keypoint_discovery` function. This function is responsible for selecting keyframes/subgoals from demonstrations using different decomposition strategies, including heuristic-based selection and Ramer-Douglas-Peucker (RDP)-based trajectory simplification.
 
 ## Project Website
