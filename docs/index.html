@@ -302,6 +302,37 @@
         color: #64748b;
         margin-top: 8px;
     }
+
+    .results-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 24px;
+        overflow: hidden;
+        border-radius: 14px;
+        font-size: 0.95rem;
+    }
+
+    .results-table th,
+    .results-table td {
+        border: 1px solid #dbe4ee;
+        padding: 16px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .results-table th {
+        background: #eff6ff;
+        color: #1e3a8a;
+        font-weight: 700;
+    }
+
+    .results-table td {
+        background: white;
+    }
+
+    .results-table tr:hover td {
+        background: #f8fafc;
+    }
   </style>
 </head>
 
@@ -567,7 +598,7 @@
     </section>
 
     <section id="results">
-      <h2>Experimental Results</h2>
+      <h2>Results</h2>
 
       <p>
         The experiments are designed to evaluate whether the proposed subgoal extraction method
@@ -610,14 +641,6 @@
             <td>Number of Extracted Subgoals</td>
             <td>Measures sparsity and consistency of the subgoal decomposition.</td>
           </tr>
-          <tr>
-            <td>Subgoal Reaching Error</td>
-            <td>Measures how accurately the low-level policy reaches predicted subgoals.</td>
-          </tr>
-          <tr>
-            <td>Rollout Stability</td>
-            <td>Measures whether the hierarchical policy progresses through subgoals reliably.</td>
-          </tr>
         </tbody>
       </table>
 
@@ -636,13 +659,35 @@
         that subgoal quality is a critical factor in long-horizon robotic manipulation.
       </p>
 
-      <div class="placeholder">
-        Add result table here: success rates for baseline DP3, heuristic hierarchical policy,
-        and RDP-based hierarchical policy.
-      </div>
+      <h3>Quantitative Results</h3>
 
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>RVT-2 + Motion Planner<br>(Original Demonstrations)</th>
+            <th>RVT-2 + Motion Planner<br>(Smooth Demonstrations)</th>
+            <th>Avg. Keyframes Detected<br>(Heuristic on Smooth Data)</th>
+            <th>Hierarchical Policy on Smooth Demonstrations<br>(RVT-2 + Goal-Conditioned DP3)</th>
+            <th>Avg. Keyframes Detected<br>(RDP on Smooth Data)</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr>
+            <td><strong>SweepToDustpanOfSize</strong></td>
+            <td>100%</td>
+            <td>20%</td>
+            <td>8.49</td>
+            <td>76%</td>
+            <td>5.54</td>
+          </tr>
+        </tbody>
+      </table>
+      
       <p class="caption">
-        Suggested table: quantitative comparison of policy performance across methods.
+        Comparison between original demonstrations, smooth demonstrations with heuristic subgoal extraction,
+        and the proposed hierarchical policy using RDP-based subgoal decomposition.
       </p>
     </section>
 
