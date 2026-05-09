@@ -828,24 +828,25 @@
       <h2>Conclusion</h2>
 
       <p>
-        This project investigates subgoal decomposition for smooth robotic manipulation
-        trajectories. Existing RLBench-based heuristic methods often depend on explicit pauses
-        in demonstrations, but these pauses may not exist in more realistic continuous-motion
-        settings.
+        This project investigates subgoal decomposition for smooth robotic manipulation trajectories. Existing RLBench-based heuristic 
+        methods often rely on explicit pauses in demonstrations, but these pauses may not exist in more realistic continuous-motion settings.
       </p>
-
+      
       <p>
-        By smoothing RLBench demonstrations and applying trajectory-based subgoal extraction,
-        we evaluate a more robust approach to hierarchical manipulation. The results suggest
-        that meaningful subgoal decomposition is essential for improving long-horizon
-        manipulation performance, especially when demonstrations do not contain artificial
-        transition points.
+        By smoothing RLBench demonstrations and applying trajectory-based subgoal extraction, we evaluate a more robust approach for selecting 
+        intermediate subgoals in hierarchical manipulation policies. Experimental results show that conventional heuristic methods can generate excessive 
+        and unstable keyframes on smooth trajectories, while RDP-based trajectory simplification produces fewer and more meaningful subgoals that improve hierarchical policy execution.
+      </p>
+      
+      <p>  
+        These results suggest that subgoal selection is a critical component of hierarchical manipulation systems. Selecting meaningful keyframes is 
+        not simply a preprocessing step — it directly affects the stability, smoothness, and overall performance of hierarchical robotic policies.
       </p>
 
       <div class="takeaway">
         <strong>Main Takeaway:</strong>
-        Robust subgoal extraction is not just a preprocessing detail. It directly affects the
-        success of hierarchical robotic manipulation policies.
+        The quality of subgoal selection plays a critical role in hierarchical manipulation policies. 
+        Selecting fewer but more meaningful keyframes leads to more stable and effective hierarchical execution.
       </div>
     </section>
 
@@ -853,26 +854,43 @@
       <h2>References</h2>
 
       <ol>
+
         <li>
           James, S., Ma, Z., Arrojo, D. R., and Davison, A. J. 
-          <em>RLBench: The Robot Learning Benchmark and Learning Environment.</em>
+          <em>RLBench: The Robot Learning Benchmark and Learning Environment.</em> 
+          IEEE Robotics and Automation Letters (RA-L), 2020.
         </li>
+      
         <li>
-          Shridhar, M., Manuelli, L., and Fox, D.
-          <em>PerAct: Perceiver-Actor for 6-DoF Manipulation.</em>
+          Shridhar, M., Manuelli, L., and Fox, D. 
+          <em>Perceiver-Actor: A Multi-Task Transformer for Robotic Manipulation.</em> 
+          Proceedings of the 6th Conference on Robot Learning (CoRL), 2022.
         </li>
+      
         <li>
-          Goyal, A., et al.
-          <em>RVT: Robotic View Transformer for 3D Object Manipulation.</em>
+          Goyal, A., Xu, J., Guo, Y., Blukis, V., Chao, Y.-W., and Fox, D. 
+          <em>RVT: Robotic View Transformer for 3D Object Manipulation.</em> 
+          Proceedings of the 7th Conference on Robot Learning (CoRL), 2023.
         </li>
+      
         <li>
-          Ze, Y., et al.
-          <em>3D Diffusion Policy.</em>
+          Goyal, A., Blukis, V., Xu, J., Guo, Y., Chao, Y.-W., and Fox, D. 
+          <em>RVT-2: Learning Precise Manipulation from Few Demonstrations.</em> 
+          arXiv preprint arXiv:2406.08545, 2024.
         </li>
+      
         <li>
-          Ramer, U. and Douglas, D. H., Peucker, T. K.
-          <em>Ramer-Douglas-Peucker Algorithm for Curve Simplification.</em>
+          Ze, Y., Wang, G., Qin, Y., and colleagues. 
+          <em>3D Diffusion Policy: Generalizable Visuomotor Policy Learning via Simple 3D Representations.</em> 
+          Robotics: Science and Systems (RSS), 2024.
         </li>
+      
+        <li>
+          Douglas, D. H. and Peucker, T. K. 
+          <em>Algorithms for the Reduction of the Number of Points Required to Represent a Digitized Line or Its Caricature.</em> 
+          The Canadian Cartographer, 1973.
+        </li>
+      
       </ol>
     </section>
 
