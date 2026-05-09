@@ -26,7 +26,7 @@
       object-fit: contain;
       border-radius: 8px;
     }
-    
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -395,9 +395,8 @@
       <h2>Methodology</h2>
 
       <p>
-        Our methodology consists of three main components: generating smooth trajectories,
-        extracting subgoals using trajectory simplification, and training a hierarchical
-        manipulation policy using the extracted subgoals.
+        Our methodology consists of three main components: generating smooth manipulation trajectories, extracting subgoals using the Ramer–Douglas–Peucker 
+        (RDP) algorithm, and training a hierarchical manipulation policy using the extracted subgoals.
       </p>
 
       <div class="pipeline">
@@ -416,21 +415,31 @@
         We first modify RLBench demonstrations by smoothing the end-effector trajectories.
         The goal is to remove artificial pauses while preserving the original task behavior.
         This creates a more challenging setting where velocity-based keyframe extraction is
-        no longer naturally supported by the data.
-      </p>
-
-      <p>
-        This step is important because it directly tests whether existing subgoal extraction
+        no longer naturally supported by the data. This step is important because it directly tests whether existing subgoal extraction
         methods depend on dataset artifacts rather than true task structure.
       </p>
 
-      <div class="placeholder">
-        Add visualization here: original trajectory vs. smoothed trajectory.
-      </div>
+      <div class="media-container">
 
-      <p class="caption">
-        Suggested figure: comparison of original and smoothed end-effector trajectories.
-      </p>
+        <div class="media-item">
+          <video controls>
+            <source src="videos/original_demo.mp4" type="video/mp4">
+          </video>
+          <p class="caption">
+            Original RLBench demonstration containing explicit pauses.
+          </p>
+        </div>
+      
+        <div class="media-item">
+          <video controls>
+            <source src="videos/smooth_demo.mp4" type="video/mp4">
+          </video>
+          <p class="caption">
+            Smoothed demonstration with continuous motion and reduced pauses.
+          </p>
+        </div>
+      
+      </div>
 
       <h3>2. RDP-Based Subgoal Extraction</h3>
 
