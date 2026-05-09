@@ -354,6 +354,19 @@
             padding: 10px;
         }
     }
+
+    .single-video-container {
+        max-width: 720px;
+        margin: 28px auto 0;
+    }
+
+    .single-video-container video {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid #d1d5db;
+    }
     
   </style>
 </head>
@@ -732,6 +745,26 @@
         Average number of extracted subgoals on smooth demonstrations using heuristic-based
         and RDP-based subgoal decomposition methods.
       </p>
+
+      <h3>Hierarchical Policy Rollout</h3>
+
+      <p>
+        The video below shows the hierarchical execution process on a smooth demonstration setting.
+        RVT-2 first predicts the next subgoal, and goal-conditioned DP3 generates a short sequence of
+        16 actions to move toward that subgoal. After executing the action chunk, RVT-2 replans the
+        next subgoal, and this process repeats until the task is completed.
+      </p>
+      
+      <div class="single-video-container">
+        <video controls>
+          <source src="videos/output.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          Hierarchical policy rollout: RVT-2 predicts subgoals and goal-conditioned DP3 executes
+          short-horizon action chunks before replanning.
+        </p>
+      </div>
+
     </section>
 
     <section id="discussion">
