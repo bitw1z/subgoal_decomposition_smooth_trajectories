@@ -265,7 +265,7 @@
   <header>
     <h1>Subgoal Decomposition for Smooth Robotic Manipulation Trajectories</h1>
     <p>
-      A study of robust subgoal extraction for hierarchical manipulation policies when
+      A study of subgoal extraction for hierarchical manipulation policies when
       demonstrations do not contain explicit pauses.
     </p>
     <div class="meta">
@@ -334,19 +334,19 @@
 
       <p>
         This heuristic is effective on standard RLBench demonstrations because the trajectories contain explicit pauses before important manipulation actions 
-        such as grasping, pushing, or placing. These pauses naturally produce low-velocity transition points that are easily detected by heuristic-based keyframe extraction methods.
+        such as grasping, pushing, or placing. These pauses naturally produce low-velocity transition points that are easily detected by heuristic-based keyframe extraction methods. 
+        However, this assumption becomes problematic when demonstrations are smooth and transition continuously between motions without explicit stopping behavior.
       </p>
 
       <div class="problem">
         <strong>Problem:</strong>
-        If demonstrations are smooth and no longer contain explicit pauses, important task
-        transitions may not correspond to near-zero velocities. As a result, pause-based
-        subgoal extraction can miss meaningful subgoals or produce unstable decompositions.
+        If demonstrations are smooth and no longer contain explicit pauses, important task transitions may not correspond to near-zero velocities. 
+        As a result, pause-based subgoal extraction methods may fail to identify meaningful intermediate subgoals or produce unstable decompositions.
       </div>
 
       <p>
-        This motivates the central question of this project: how can we extract useful subgoals
-        from smooth robotic manipulation trajectories where explicit pauses are absent?
+        This limitation motivates the central question of this project: how can we extract meaningful subgoals from smooth robotic manipulation 
+        trajectories where explicit pauses are absent?
       </p>
     </section>
 
