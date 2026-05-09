@@ -306,18 +306,20 @@
     .results-table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 24px;
-        overflow: hidden;
-        border-radius: 14px;
+        margin-top: 22px;
+        margin-bottom: 12px;
         font-size: 0.95rem;
+        overflow: hidden;
+        border-radius: 12px;
     }
 
     .results-table th,
     .results-table td {
         border: 1px solid #dbe4ee;
-        padding: 16px;
+        padding: 14px 16px;
         text-align: center;
         vertical-align: middle;
+        line-height: 1.5;
     }
 
     .results-table th {
@@ -333,6 +335,26 @@
     .results-table tr:hover td {
         background: #f8fafc;
     }
+
+    .caption {
+        text-align: center;
+        font-size: 0.92rem;
+        color: #64748b;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    @media (max-width: 900px) {
+        .results-table {
+            font-size: 0.82rem;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 10px;
+        }
+    }
+    
   </style>
 </head>
 
@@ -659,7 +681,7 @@
         that subgoal quality is a critical factor in long-horizon robotic manipulation.
       </p>
 
-      <h3>Quantitative Results</h3>
+      <h3>Task Success Rate</h3>
 
       <table class="results-table">
         <thead>
@@ -667,9 +689,7 @@
             <th>Task</th>
             <th>RVT-2 + Motion Planner<br>(Original Demonstrations)</th>
             <th>RVT-2 + Motion Planner<br>(Smooth Demonstrations)</th>
-            <th>Avg. Keyframes Detected<br>(Heuristic on Smooth Data)</th>
             <th>Hierarchical Policy on Smooth Demonstrations<br>(RVT-2 + Goal-Conditioned DP3)</th>
-            <th>Avg. Keyframes Detected<br>(RDP on Smooth Data)</th>
           </tr>
         </thead>
       
@@ -678,16 +698,39 @@
             <td><strong>SweepToDustpanOfSize</strong></td>
             <td>100%</td>
             <td>20%</td>
-            <td>8.49</td>
             <td>76%</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p class="caption">
+        Task success rate comparison across original demonstrations, smooth demonstrations,
+        and the proposed hierarchical policy using RDP-based subgoal decomposition.
+      </p>
+      
+      <h3>Average Number of Extracted Keyframes</h3>
+
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Heuristic-Based Keyframe Extraction<br>(Smooth Demonstrations)</th>
+            <th>RDP-Based Keyframe Extraction<br>(Smooth Demonstrations)</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr>
+            <td><strong>SweepToDustpanOfSize</strong></td>
+            <td>8.49</td>
             <td>5.54</td>
           </tr>
         </tbody>
       </table>
       
       <p class="caption">
-        Comparison between original demonstrations, smooth demonstrations with heuristic subgoal extraction,
-        and the proposed hierarchical policy using RDP-based subgoal decomposition.
+        Average number of extracted subgoals on smooth demonstrations using heuristic-based
+        and RDP-based subgoal decomposition methods.
       </p>
     </section>
 
