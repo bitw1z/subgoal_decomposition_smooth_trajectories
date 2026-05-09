@@ -682,16 +682,16 @@
       <h3>Results Summary</h3>
 
       <p>
-        Experimental results show that conventional heuristic-based subgoal extraction becomes
-        less reliable when explicit pauses are removed from the demonstrations. In contrast,
-        trajectory-based subgoal extraction produces more stable intermediate targets on smooth
-        trajectories.
+        Experimental results show that conventional heuristic-based subgoal extraction becomes less 
+        reliable when explicit pauses are removed from the demonstrations. On smooth trajectories, the 
+        heuristic method frequently produces excessive and unnecessary keyframes, leading to unstable subgoal 
+        decomposition and jerky motion during policy execution.
       </p>
 
       <p>
-        The hierarchical policy using the proposed subgoal decomposition method improves
-        manipulation performance compared to conventional heuristic-based approaches, suggesting
-        that subgoal quality is a critical factor in long-horizon robotic manipulation.
+        In contrast, geometry subgoal extraction using RDP produces fewer but more meaningful intermediate 
+        subgoals by preserving the major geometric structure of the trajectory. This results in more stable hierarchical 
+        execution and smoother motion generation on continuous manipulation trajectories. 
       </p>
 
       <h3>Task Success Rate</h3>
@@ -814,9 +814,13 @@
       <h3>Future Work</h3>
 
       <p>
-        Future work could explore learned subgoal discovery, adaptive epsilon selection,
-        language-conditioned subgoal prediction, and improved coordination between the
-        high-level RVT-2 policy and the low-level DP3 controller.
+        Future work could explore learned subgoal discovery methods in which a dedicated policy predicts
+        intermediate subgoals directly from demonstrations rather than relying on fixed geometric trajectory simplification. 
+        Another promising direction is adaptive epsilon selection, where the trajectory simplification threshold is dynamically 
+        adjusted for each demonstration to produce subgoals that are most beneficial for downstream hierarchical policy learning.
+        Another important future direction is extending subgoal decomposition beyond simulation trajectories to real-world human demonstration videos. 
+        Instead of extracting subgoals directly from simulator states, future work could investigate how to identify meaningful intermediate subgoals 
+        from human videos using visual motion patterns, object interactions, and temporal task progression.
       </p>
     </section>
 
