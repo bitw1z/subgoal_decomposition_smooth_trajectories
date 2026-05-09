@@ -444,17 +444,20 @@
       <h3>2. RDP-Based Subgoal Extraction</h3>
 
       <p>
-        To extract subgoals from smooth trajectories, we use the Ramer-Douglas-Peucker
-        algorithm as a trajectory simplification method. Instead of detecting pauses, this
-        approach identifies important geometric points along the trajectory that preserve
-        the overall motion structure.
+        To extract subgoals from smooth trajectories, we use the Ramer-Douglas-Peucker (RDP) algorithm as a trajectory simplification method. 
+        Instead of detecting pauses, this approach identifies important geometric points along the trajectory that preserve the overall motion structure.
+      </p>
+      
+      <p>
+        The RDP algorithm begins by connecting the start and end points of a trajectory segment with a straight line. It then finds the trajectory point with the 
+        largest perpendicular distance from this line. If the distance exceeds a threshold value ε (epsilon), that point is selected as an important keypoint and 
+        the algorithm recursively repeats the same process on the resulting subsegments. Through this recursive simplification process, RDP preserves the major 
+        geometric structure of the trajectory while removing redundant intermediate points.
       </p>
 
       <p>
-        The RDP algorithm is controlled by an epsilon parameter. A smaller epsilon preserves
-        more trajectory detail and produces more keyframes, while a larger epsilon produces
-        fewer, sparser keyframes. In this project, we investigate how different epsilon values
-        affect subgoal quality and downstream hierarchical policy learning.
+        The epsilon parameter controls the level of simplification. A smaller epsilon preserves more trajectory detail and produces denser keyframes, while a larger epsilon 
+        generates fewer and sparser subgoals. In this project, we investigate how different epsilon values affect subgoal quality and downstream hierarchical policy learning.
       </p>
 
       <div class="grid">
@@ -483,14 +486,37 @@
         </div>
       </div>
 
-      <div class="placeholder">
-        Add visualization here: RDP-selected subgoals overlaid on a 3D trajectory.
+      <div class="rdp-grid">
+
+        <div class="rdp-item">
+          <img src="images/0.001.png" alt="RDP epsilon 0.001">
+          <p class="caption">
+            RDP keyframes with ε = 0.001
+          </p>
+        </div>
+      
+        <div class="rdp-item">
+          <img src="images/0.02.png" alt="RDP epsilon 0.02">
+          <p class="caption">
+            RDP keyframes with ε = 0.02
+          </p>
+        </div>
+      
+        <div class="rdp-item">
+          <img src="images/0.035.png" alt="RDP epsilon 0.035">
+          <p class="caption">
+            RDP keyframes with ε = 0.035
+          </p>
+        </div>
+      
+        <div class="rdp-item">
+          <img src="images/0.04.png" alt="RDP epsilon 0.04">
+          <p class="caption">
+            RDP keyframes with ε = 0.04
+          </p>
+        </div>
+      
       </div>
-
-      <p class="caption">
-        Suggested figure: trajectory with extracted RDP keyframes for different epsilon values.
-      </p>
-
       <h3>3. Hierarchical Policy Learning</h3>
 
       <p>
