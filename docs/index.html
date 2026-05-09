@@ -332,6 +332,26 @@
         Specifically, actions are selected as keyframes when the joint velocities are near zero or when the gripper open/close state changes.
       </p>
 
+      <div class="media-row">
+
+        <div class="media-box">
+          <video controls width="100%">
+            <source src="videos/original_demo.mp4" type="video/mp4">
+          </video>
+          <p class="caption">
+            Original RLBench demonstration containing explicit pauses before important actions.
+          </p>
+        </div>
+      
+        <div class="media-box">
+          <img src="images/trajectory_subgoals.png" alt="Trajectory with Subgoals">
+          <p class="caption">
+            Extracted trajectory subgoals using heuristic-based keyframe selection.
+          </p>
+        </div>
+      
+      </div>
+
       <p>
         This heuristic is effective on standard RLBench demonstrations because the trajectories contain explicit pauses before important manipulation actions 
         such as grasping, pushing, or placing. These pauses naturally produce low-velocity transition points that are easily detected by heuristic-based keyframe extraction methods. 
