@@ -547,7 +547,8 @@
 
       <p>
         The epsilon parameter controls the level of simplification. A smaller epsilon preserves more trajectory detail and produces denser keyframes, while a larger epsilon 
-        generates fewer and sparser subgoals. In this project, we investigate how different epsilon values affect subgoal quality and downstream hierarchical policy learning.
+        generates fewer and sparser subgoals. In this project, we experimented with several different epsilon values for the Ramer–Douglas–Peucker (RDP) algorithm and selected 
+        the value that produced the most meaningful subgoals based on qualitative evaluation of the extracted task progression.
       </p>
 
       <div class="grid">
