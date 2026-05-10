@@ -8,7 +8,9 @@ Subgoal extraction for robotic manipulation trajectories.
 
 ## Overview
 
-Hierarchical manipulation policies decompose robotic manipulation into high-level decision making and low-level motion execution. Compared to a single monolithic policy, this hierarchical structure enables the policy to focus on shorter and more manageable objectives at each stage of the task. High-level policies determine intermediate subgoals that represent task progression, while low-level controllers generate motions to reach those subgoals. This decomposition reduces the complexity of learning and improves the policy’s ability to perform structured manipulation behaviors reliably.
+Hierarchical manipulation policies decompose robotic manipulation into high-level decision making and low-level motion execution. Compared to a single monolithic policy, this hierarchical structure enables the policy to focus on shorter and more manageable objectives at each stage of the task. High-level policies determine intermediate subgoals that represent task progression, while low-level controllers generate motions to reach those subgoals. This decomposition reduces the complexity of learning and improves the policy’s ability to perform structured manipulation behaviors reliably. 
+
+Therefore, the quality of subgoal decomposition becomes a critical factor in hierarchical manipulation, since effective subgoals directly influence how successfully the policy can understand and execute the task progression.
 
 State-of-the-art manipulation policies on RLBench such as RVT and PerAct predict intermediate subgoals and use motion planners to generate collision-free trajectories. These methods typically rely on simple heuristic-based subgoal decomposition strategies that assume demonstrations contain explicit pauses or clear transition points, such as pre-grasp or pre-push states. While this assumption works well for standard RLBench demonstrations, it becomes problematic when trajectories are smooth and no longer contain obvious stopping points.
 
