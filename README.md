@@ -14,7 +14,7 @@ Therefore, the quality of subgoal decomposition becomes a critical factor in hie
 
 State-of-the-art manipulation policies on RLBench such as RVT and PerAct predict intermediate subgoals and use motion planners to generate collision-free trajectories. These methods typically rely on simple heuristic-based subgoal decomposition strategies that assume demonstrations contain explicit pauses or clear transition points, such as pre-grasp or pre-push states. While this assumption works well for standard RLBench demonstrations, it becomes problematic when trajectories are smooth and no longer contain obvious stopping points.
 
-In this project, we investigate subgoal decomposition for smooth manipulation trajectories. We first smooth RLBench demonstrations to remove explicit pauses and transition points. We then explore trajectory-based subgoal decomposition methods, including Ramer-Douglas-Peucker (RDP), and evaluate hierarchical manipulation policies combining RVT-2 and goal-conditioned DP3 on these smooth demonstrations.
+In this project, we investigate subgoal decomposition for smooth manipulation trajectories. We first smooth RLBench demonstrations to remove explicit pauses and transition points. We then explore trajectory-based subgoal decomposition methods, including Ramer-Douglas-Peucker (RDP) algorithm, and evaluate hierarchical manipulation policies combining RVT-2 and goal-conditioned DP3 on these smooth demonstrations.
 
 Additional implementation details, experiments, visualizations, and project updates are provided on the project website.
 
