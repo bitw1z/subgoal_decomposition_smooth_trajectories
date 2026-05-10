@@ -8,9 +8,7 @@ Subgoal extraction for robotic manipulation trajectories.
 
 ## Overview
 
-Long-horizon robotic manipulation tasks are challenging because they require reasoning over many sequential actions while maintaining consistent task progression throughout the task. Learning these behaviors using a single monolithic policy is difficult, since the policy must simultaneously reason about high-level task planning and low-level motion control.
-
-Subgoals address this challenge by decomposing complex manipulation tasks into intermediate objectives. This decomposition reduces the effective planning horizon and provides structured guidance for low-level control policies, making long-horizon manipulation more tractable.
+Hierarchical manipulation policies decompose robotic manipulation into high-level decision making and low-level motion execution. Compared to a single monolithic policy, this hierarchical structure enables the policy to focus on shorter and more manageable objectives at each stage of the task. High-level policies determine intermediate subgoals that represent task progression, while low-level controllers generate motions to reach those subgoals. This decomposition reduces the complexity of learning and improves the policy’s ability to perform structured manipulation behaviors reliably.
 
 State-of-the-art manipulation policies on RLBench such as RVT and PerAct predict intermediate subgoals and use motion planners to generate collision-free trajectories. These methods typically rely on simple heuristic-based subgoal decomposition strategies that assume demonstrations contain explicit pauses or clear transition points, such as pre-grasp or pre-push states. While this assumption works well for standard RLBench demonstrations, it becomes problematic when trajectories are smooth and no longer contain obvious stopping points.
 
